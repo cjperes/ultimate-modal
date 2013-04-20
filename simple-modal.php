@@ -30,9 +30,13 @@ class Simple_Modal {
         add_action( 'admin_init', array( &$this, 'plugin_settings' ) );
 
         // Load scripts in front-end.
-        // add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts' ), 999 );
+        add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts' ), 999 );
 
+        // Load admin scripts.
         add_action( 'admin_enqueue_scripts', array( &$this, 'admin_scripts' ) );
+
+        // Display the modal.
+        add_action( 'wp_footer', array( &$this, 'display_modal' ), 9999 );
     }
 
     /**
@@ -53,8 +57,49 @@ class Simple_Modal {
         wp_enqueue_script( 'wp-color-picker' );
 
         // Theme Options.
-        wp_register_script( 'simplemodal-admin', plugins_url( '/assets/js/admin.js', __FILE__ ), array( 'jquery' ), null, true );
+        wp_register_script( 'simplemodal-admin', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), null, true );
         wp_enqueue_script( 'simplemodal-admin' );
+    }
+
+    /**
+     * Enqueue plugin scripts.
+     *
+     * @return void
+     */
+    public function enqueue_scripts() {
+        // Get plugin settings.
+        $settings = get_option( 'simplemodal_settings' );
+
+        if ( $this->is_visible( $settings ) ) {
+
+            wp_register_script( 'simplemodal', plugins_url( 'assets/js/simplemodal.js', __FILE__ ), array( 'jquery' ), null, true );
+            wp_enqueue_script( 'simplemodal' );
+
+            wp_register_style( 'simplemodal', plugins_url( 'assets/css/simplemodal.css', __FILE__ ), array(), null, 'all' );
+            wp_enqueue_style( 'simplemodal' );
+        }
+    }
+
+    /**
+     * Sets the modal visibility.
+     *
+     * @param  array $settings Plugin settings.
+     *
+     * @return bool
+     */
+    private function is_visible( $settings ) {
+        $show = false;
+
+        if ( isset( $settings['active'] ) && 1 == $settings['active'] ) {
+            $show = true;
+        }
+
+        if ( isset( $settings['only_home'] ) && 1 == $settings['only_home'] && ! is_home() && ! is_front_page() ) {
+
+            $show = false;
+        }
+
+        return $show;
     }
 
     /**
@@ -414,6 +459,30 @@ class Simple_Modal {
         }
 
         return $output;
+    }
+
+    public function display_modal() {
+        // Get plugin settings.
+        $settings = get_option( 'simplemodal_settings' );
+
+        if ( $this->is_visible( $settings ) ) {
+
+            $background = isset( $settings['background'] ) ? $settings['background'] : '#000000';
+            $width = isset( $settings['width'] ) ? $settings['width'] : '500';
+            $height = isset( $settings['height'] ) ? $settings['height'] : '300';
+            $margin = sprintf( '-%spx 0 0 -%spx', ( ( $height + 10 ) / 2 ), ( ( $width + 10 ) / 2 ) );
+            $content = isset( $settings['content'] ) ? apply_filters( 'the_content', $settings['content'] ) : '';
+
+            $html = sprintf( '<div id="simplemodal" style="background: %s">', $background );
+            $html .= '</div>';
+            $html .= '<div id="simplemodal-wrap">';
+            $html .= sprintf( '<div id="simplemodal-content" style="width: %spx; height: %spx; margin: %s;">', $width, $height, $margin );
+            $html .= $content;
+            $html .= '</div>';
+            $html .= '</div>';
+
+            echo $html;
+        }
     }
 
 }
