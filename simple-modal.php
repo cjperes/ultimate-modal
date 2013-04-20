@@ -262,9 +262,10 @@ class Simple_Modal {
     /**
      * Get Option.
      *
-     * @param  string $tab     Tab that the option belongs
+     * @param  string $tab     Tab that the option belongs.
      * @param  string $id      Option ID.
-     * @param  string $default Default option
+     * @param  string $default Default option.
+     *
      * @return array           Item options.
      */
     protected function get_option( $tab, $id, $default = '' ) {
@@ -393,6 +394,7 @@ class Simple_Modal {
      * Sanitization fields callback.
      *
      * @param  string $input The unsanitized collection of options.
+     *
      * @return string        The collection of sanitized values.
      */
     public function validate_input( $input ) {
