@@ -37,6 +37,9 @@ class Simple_Modal {
 
         // Display the modal.
         add_action( 'wp_footer', array( &$this, 'display_modal' ), 9999 );
+
+        // Modal js vars.
+        add_action( 'wp_head', array( &$this, 'modal_js' ), 9999 );
     }
 
     /**
@@ -301,7 +304,6 @@ class Simple_Modal {
 
         // Register settings.
         register_setting( $option, $option, array( $this, 'validate_input' ) );
-
     }
 
     /**
@@ -461,6 +463,27 @@ class Simple_Modal {
         return $output;
     }
 
+    public function modal_js() {
+        // Get plugin settings.
+        $settings = get_option( 'simplemodal_settings' );
+
+        if ( $this->is_visible( $settings ) ) {
+
+            $time = isset( $settings['time'] ) ? $settings['time'] : '1';
+
+            $js = '<script type="text/javascript">' . PHP_EOL;
+            $js .= '/* <![CDATA[ */ var simplemodal_params = {"time":"' . $time. '"}; /* ]]> */' . PHP_EOL;
+            $js .= '</script>' . PHP_EOL;
+
+            echo $js;
+        }
+    }
+
+    /**
+     * Display the modal.
+     *
+     * @return string HTML of the modal.
+     */
     public function display_modal() {
         // Get plugin settings.
         $settings = get_option( 'simplemodal_settings' );
@@ -473,12 +496,11 @@ class Simple_Modal {
             $margin = sprintf( '-%spx 0 0 -%spx', ( ( $height + 10 ) / 2 ), ( ( $width + 10 ) / 2 ) );
             $content = isset( $settings['content'] ) ? apply_filters( 'the_content', $settings['content'] ) : '';
 
-            $html = sprintf( '<div id="simplemodal" style="background: %s">', $background );
+            $html = sprintf( '<div id="simplemodal" class="simplemodal" style="background: %s">', $background );
             $html .= '</div>';
-            $html .= '<div id="simplemodal-wrap">';
-            $html .= sprintf( '<div id="simplemodal-content" style="width: %spx; height: %spx; margin: %s;">', $width, $height, $margin );
+            $html .= sprintf( '<div id="simplemodal-content" class="simplemodal" style="width: %spx; height: %spx; margin: %s;">', $width, $height, $margin );
+            $html .= '<div id="simplemodal-close"></div>';
             $html .= $content;
-            $html .= '</div>';
             $html .= '</div>';
 
             echo $html;
