@@ -1,0 +1,117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Modal v1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-04-21 21:55:03+0000\n"
+"Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#. translators: plugin header field 'Name'
+#: simple-modal.php:0
+#: simple-modal.php:139
+#: simple-modal.php:140
+#: simple-modal.php:157
+#@ simplemodal
+msgid "Simple Modal"
+msgstr "Simple Modal"
+
+#. translators: plugin header field 'PluginURI'
+#. translators: plugin header field 'AuthorURI'
+#: simple-modal.php:0
+#@ simplemodal
+msgid "http://claudiosmweb.com/"
+msgstr "http://claudiosmweb.com/"
+
+#. translators: plugin header field 'Description'
+#: simple-modal.php:0
+#@ simplemodal
+msgid "Displays a modal content in your WordPress"
+msgstr "Exibe uma janela modal em seu WordPress"
+
+#. translators: plugin header field 'Author'
+#: simple-modal.php:0
+#@ simplemodal
+msgid "claudiosanches"
+msgstr "claudiosanches"
+
+#. translators: plugin header field 'Version'
+#: simple-modal.php:0
+#@ simplemodal
+msgid "1.0.0"
+msgstr "1.0.0"
+
+#: simple-modal.php:191
+#@ simplemodal
+msgid "Settings:"
+msgstr "Configurações:"
+
+#: simple-modal.php:199
+#@ simplemodal
+msgid "Display the modal:"
+msgstr "Exibir o modal:"
+
+#: simple-modal.php:206
+#@ simplemodal
+msgid "Enable to display the modal."
+msgstr "Ative para exibir o modal."
+
+#: simple-modal.php:213
+#@ simplemodal
+msgid "Cookie expiration:"
+msgstr "Tempo do cookie:"
+
+#: simple-modal.php:220
+#@ simplemodal
+msgid "Days of the cookie will be valid until the modal view again."
+msgstr "Dias que o cookie será validado até exibir o modal novamente."
+
+#: simple-modal.php:227
+#@ simplemodal
+msgid "Display only in homepage:"
+msgstr "Exibir apenas na página inicial:"
+
+#: simple-modal.php:234
+#@ simplemodal
+msgid "View the modal only on homepage."
+msgstr "Ative para exibir o modal apenas na página inicial."
+
+#: simple-modal.php:241
+#@ simplemodal
+msgid "Design:"
+msgstr "Design:"
+
+#: simple-modal.php:249
+#@ simplemodal
+msgid "Background:"
+msgstr "Cor de fundo:"
+
+#: simple-modal.php:263
+#@ simplemodal
+msgid "Width:"
+msgstr "Largura:"
+
+#: simple-modal.php:277
+#@ simplemodal
+msgid "Height:"
+msgstr "Altura:"
+
+#: simple-modal.php:291
+#: simple-modal.php:299
+#@ simplemodal
+msgid "Content:"
+msgstr "Conteúdo:"
+
