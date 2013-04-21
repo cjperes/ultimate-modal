@@ -5,7 +5,7 @@
  * Description: Displays a modal content in your WordPress
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
- * Version: 1.0
+ * Version: 1.0.0
  * License: GPLv2 or later
  * Text Domain: simplemodal
  * Domain Path: /languages/
@@ -64,7 +64,7 @@ class Simple_Modal {
         wp_enqueue_script( 'wp-color-picker' );
 
         // Theme Options.
-        wp_register_script( 'simplemodal-admin', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), null, true );
+        wp_register_script( 'simplemodal-admin', plugins_url( 'assets/js/admin.min.js', __FILE__ ), array( 'jquery' ), null, true );
         wp_enqueue_script( 'simplemodal-admin' );
     }
 
@@ -79,7 +79,7 @@ class Simple_Modal {
 
         if ( $this->is_visible( $settings ) ) {
 
-            wp_register_script( 'simplemodal', plugins_url( 'assets/js/simplemodal.js', __FILE__ ), array( 'jquery' ), null, true );
+            wp_register_script( 'simplemodal', plugins_url( 'assets/js/simplemodal.min.js', __FILE__ ), array( 'jquery' ), null, true );
             wp_enqueue_script( 'simplemodal' );
 
             wp_register_style( 'simplemodal', plugins_url( 'assets/css/simplemodal.css', __FILE__ ), array(), null, 'all' );

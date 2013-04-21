@@ -1,0 +1,9 @@
+// Opacity mixin
+@mixin opacity_legacy($opacity) {
+    $ie_opacity: round($opacity * 100);
+    -ms-filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$ie_opacity})");
+    filter: alpha(opacity=#{$ie_opacity});
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: $opacity;
+}

@@ -1,6 +1,4 @@
 jQuery(document).ready(function($) {
-    /**
-     * Color Picker.
-     */
+    // Color Picker.
     $(".simplemodal-color-field").wpColorPicker();
 });
