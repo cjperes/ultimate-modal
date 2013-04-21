@@ -1,4 +1,4 @@
-# Simple Modal #
+# Ultimate Modal #
 **Contributors:** claudiosanches  
 **Tags:** modal, popup  
 **Requires at least:** 3.0  
@@ -21,7 +21,7 @@ Displays a modal on your WordPress site, configuring the contents with an editor
 
 * Upload plugin files to your plugins folder, or install using WordPress built-in Add New Plugin installer;
 * Activate the plugin;
-* Navigate to Settings -> Simple Modal and fill the options.
+* Navigate to Settings -> Ultimate Modal and fill the options.
 
 ## Frequently Asked Questions ##
 
@@ -32,10 +32,10 @@ Displays a modal on your WordPress site, configuring the contents with an editor
 ## Screenshots ##
 
 ### 1. Settings page. ###
-![1. Settings page.](http://s.wordpress.org/extend/plugins/simple-modal/screenshot-1.png)
+![1. Settings page.](http://s.wordpress.org/extend/plugins/ultimate-modal/screenshot-1.png)
 
 ### 2. Plugin in action. ###
-![2. Plugin in action.](http://s.wordpress.org/extend/plugins/simple-modal/screenshot-2.png)
+![2. Plugin in action.](http://s.wordpress.org/extend/plugins/ultimate-modal/screenshot-2.png)
 
 
 ## Changelog ##
@@ -52,8 +52,8 @@ Displays a modal on your WordPress site, configuring the contents with an editor
 
 ## License ##
 
-Simple Modal is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Ultimate Modal is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-Simple Modal is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+Ultimate Modal is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with Simple Modal. If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with Ultimate Modal. If not, see <http://www.gnu.org/licenses/>.
