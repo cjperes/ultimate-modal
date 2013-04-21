@@ -19,6 +19,7 @@ module.exports = function(grunt) {
                 "README.md",
                 "package.json",
                 "config.rb",
+                "*.zip",
                 "assets/js/admin.js",
                 "assets/js/jquery.cookie.js",
                 "assets/js/ultimatemodal.js"
@@ -171,9 +172,16 @@ module.exports = function(grunt) {
 
     // deploy task
     grunt.registerTask("deploy", [
+        "default",
         "rsync:tag",
         "rsync:trunk",
         "shell:svn_add",
         "shell:svn_commit"
+    ]);
+
+    // zip task
+    grunt.registerTask("zip", [
+        "default",
+        "zipdir"
     ]);
 };
