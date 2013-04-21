@@ -105,6 +105,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // rsync commands used to take the files to svn repository
         rsync: {
             tag: {
                 src: "./",
@@ -120,6 +121,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // shell command to commit the new version of the plugin
         shell: {
             svn_add: {
                 command: "svn add --force * --auto-props --parents --depth infinity -q",
@@ -143,6 +145,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // creates a zip of the plugin
         zipdir: {
             "ultimate-modal": {
                 src: ["./"],
