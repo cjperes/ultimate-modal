@@ -118,7 +118,7 @@ module.exports = function(grunt) {
 
         shell: {
             svn_add: {
-                command: 'svn status | grep "^?" | awk "{print $2}" | xargs svn add',
+                command: 'svn add --force * --auto-props --parents --depth infinity -q',
                 options: {
                     stdout: true,
                     stderr: true,
