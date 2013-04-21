@@ -2,7 +2,7 @@
 @import "compass/css3";
 @import "mixins";
 
-#simplemodal {
+#ultimatemodal {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,7 +12,7 @@
     @include opacity_legacy(0.7);
 }
 
-#simplemodal-content {
+#ultimatemodal-content {
     background: #fff;
     position: fixed;
     top: 50%;
@@ -23,7 +23,7 @@
     @include box-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
 }
 
-#simplemodal-close {
+#ultimatemodal-close {
     background: url('../images/close.png') no-repeat;
     cursor: pointer;
     height: 20px;
@@ -34,6 +34,6 @@
     z-index: 100;
 }
 
-.simplemodal {
+.ultimatemodal {
     display: none;
 }

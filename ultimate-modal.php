@@ -1,17 +1,17 @@
 <?php
 /**
- * Plugin Name: Simple Modal
+ * Plugin Name: Ultimate Modal
  * Plugin URI: http://claudiosmweb.com/
  * Description: Displays a modal content in your WordPress
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
  * Version: 1.0.0
  * License: GPLv2 or later
- * Text Domain: simplemodal
+ * Text Domain: ultimatemodal
  * Domain Path: /languages/
  */
 
-class Simple_Modal {
+class Ultimate_Modal {
 
     /**
      * Construct.
@@ -50,7 +50,7 @@ class Simple_Modal {
      * @return void
      */
     public function languages() {
-        load_plugin_textdomain( 'simplemodal', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'ultimatemodal', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     /**
@@ -64,8 +64,8 @@ class Simple_Modal {
         wp_enqueue_script( 'wp-color-picker' );
 
         // Theme Options.
-        wp_register_script( 'simplemodal-admin', plugins_url( 'assets/js/admin.min.js', __FILE__ ), array( 'jquery' ), null, true );
-        wp_enqueue_script( 'simplemodal-admin' );
+        wp_register_script( 'ultimatemodal-admin', plugins_url( 'assets/js/admin.min.js', __FILE__ ), array( 'jquery' ), null, true );
+        wp_enqueue_script( 'ultimatemodal-admin' );
     }
 
     /**
@@ -75,15 +75,15 @@ class Simple_Modal {
      */
     public function enqueue_scripts() {
         // Get plugin settings.
-        $settings = get_option( 'simplemodal_settings' );
+        $settings = get_option( 'ultimatemodal_settings' );
 
         if ( $this->is_visible( $settings ) ) {
 
-            wp_register_script( 'simplemodal', plugins_url( 'assets/js/simplemodal.min.js', __FILE__ ), array( 'jquery' ), null, true );
-            wp_enqueue_script( 'simplemodal' );
+            wp_register_script( 'ultimatemodal', plugins_url( 'assets/js/ultimatemodal.min.js', __FILE__ ), array( 'jquery' ), null, true );
+            wp_enqueue_script( 'ultimatemodal' );
 
-            wp_register_style( 'simplemodal', plugins_url( 'assets/css/simplemodal.css', __FILE__ ), array(), null, 'all' );
-            wp_enqueue_style( 'simplemodal' );
+            wp_register_style( 'ultimatemodal', plugins_url( 'assets/css/ultimatemodal.css', __FILE__ ), array(), null, 'all' );
+            wp_enqueue_style( 'ultimatemodal' );
         }
     }
 
@@ -126,7 +126,7 @@ class Simple_Modal {
             'content'    => ''
         );
 
-        add_option( 'simplemodal_settings', $default );
+        add_option( 'ultimatemodal_settings', $default );
     }
 
     /**
@@ -136,10 +136,10 @@ class Simple_Modal {
      */
     public function menu() {
         add_options_page(
-            __( 'Simple Modal', 'simplemodal' ),
-            __( 'Simple Modal', 'simplemodal' ),
+            __( 'Ultimate Modal', 'ultimatemodal' ),
+            __( 'Ultimate Modal', 'ultimatemodal' ),
             'manage_options',
-            'simplemodal',
+            'ultimatemodal',
             array( $this, 'settings_page' )
         );
     }
@@ -154,13 +154,13 @@ class Simple_Modal {
 
             <div class="wrap">
                 <div class="icon32" id="icon-options-general"><br /></div>
-                <h2><?php _e( 'Simple Modal', 'simplemodal' ); ?></h2>
+                <h2><?php _e( 'Ultimate Modal', 'ultimatemodal' ); ?></h2>
 
                 <form method="post" action="options.php">
 
                     <?php
-                        settings_fields( 'simplemodal_settings' );
-                        do_settings_sections( 'simplemodal_settings' );
+                        settings_fields( 'ultimatemodal_settings' );
+                        do_settings_sections( 'ultimatemodal_settings' );
 
                         submit_button();
                     ?>
@@ -178,7 +178,7 @@ class Simple_Modal {
      * @return void.
      */
     public function plugin_settings() {
-        $option = 'simplemodal_settings';
+        $option = 'ultimatemodal_settings';
 
         // Create option in wp_options.
         if ( false == get_option( $option ) ) {
@@ -188,7 +188,7 @@ class Simple_Modal {
         // Set settings section.
         add_settings_section(
             'settings_section',
-            __( 'Settings:', 'simplemodal' ),
+            __( 'Settings:', 'ultimatemodal' ),
             array( &$this, 'callback_section' ),
             $option
         );
@@ -196,49 +196,49 @@ class Simple_Modal {
         // Display the Modal.
         add_settings_field(
             'active',
-            __( 'Display the modal:', 'simplemodal' ),
+            __( 'Display the modal:', 'ultimatemodal' ),
             array( &$this, 'callback_checkbox' ),
             $option,
             'settings_section',
             array(
                 'tab' => $option,
                 'id' => 'active',
-                'description' => __( 'Enable to display the modal.', 'simplemodal' )
+                'description' => __( 'Enable to display the modal.', 'ultimatemodal' )
             )
         );
 
         // Cookie expiration.
         add_settings_field(
             'time',
-            __( 'Cookie expiration:', 'simplemodal' ),
+            __( 'Cookie expiration:', 'ultimatemodal' ),
             array( &$this, 'callback_text' ),
             $option,
             'settings_section',
             array(
                 'tab' => $option,
                 'id' => 'time',
-                'description' => __( 'Days of the cookie will be valid until the modal view again.', 'simplemodal' )
+                'description' => __( 'Days of the cookie will be valid until the modal view again.', 'ultimatemodal' )
             )
         );
 
         // Display only in homepage.
         add_settings_field(
             'only_home',
-            __( 'Display only in homepage:', 'simplemodal' ),
+            __( 'Display only in homepage:', 'ultimatemodal' ),
             array( &$this, 'callback_checkbox' ),
             $option,
             'settings_section',
             array(
                 'tab' => $option,
                 'id' => 'only_home',
-                'description' => __( 'View the modal only on homepage.', 'simplemodal' )
+                'description' => __( 'View the modal only on homepage.', 'ultimatemodal' )
             )
         );
 
         // Set design section.
         add_settings_section(
             'design_section',
-            __( 'Design:', 'simplemodal' ),
+            __( 'Design:', 'ultimatemodal' ),
             array( &$this, 'callback_section' ),
             $option
         );
@@ -246,7 +246,7 @@ class Simple_Modal {
         // Background.
         add_settings_field(
             'background',
-            __( 'Background:', 'simplemodal' ),
+            __( 'Background:', 'ultimatemodal' ),
             array( &$this, 'callback_color' ),
             $option,
             'design_section',
@@ -260,7 +260,7 @@ class Simple_Modal {
         // Width
         add_settings_field(
             'width',
-            __( 'Width:', 'simplemodal' ),
+            __( 'Width:', 'ultimatemodal' ),
             array( &$this, 'callback_text' ),
             $option,
             'design_section',
@@ -274,7 +274,7 @@ class Simple_Modal {
         // Height.
         add_settings_field(
             'height',
-            __( 'Height:', 'simplemodal' ),
+            __( 'Height:', 'ultimatemodal' ),
             array( &$this, 'callback_text' ),
             $option,
             'design_section',
@@ -288,7 +288,7 @@ class Simple_Modal {
         // Set content section.
         add_settings_section(
             'content_section',
-            __( 'Content:', 'simplemodal' ),
+            __( 'Content:', 'ultimatemodal' ),
             array( &$this, 'callback_section' ),
             $option
         );
@@ -296,7 +296,7 @@ class Simple_Modal {
         // Address Autocomplete option.
         add_settings_field(
             'content',
-            __( 'Content:', 'simplemodal' ),
+            __( 'Content:', 'ultimatemodal' ),
             array( &$this, 'callback_editor' ),
             $option,
             'content_section',
@@ -400,7 +400,7 @@ class Simple_Modal {
         // Sets current option.
         $current = esc_html( $this->get_option( $tab, $id ) );
 
-        $html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="simplemodal-color-field" />', $id, $tab, $current );
+        $html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="ultimatemodal-color-field" />', $id, $tab, $current );
 
         // Displays option description.
         if ( $args['description'] ) {
@@ -462,7 +462,7 @@ class Simple_Modal {
             if ( isset( $input[$key] ) ) {
 
                 // Filter for validation.
-                $output[$key] = apply_filters( 'simplemodal_validate_settings', $value );
+                $output[$key] = apply_filters( 'ultimatemodal_validate_settings', $value );
             }
         }
 
@@ -476,7 +476,7 @@ class Simple_Modal {
      */
     public function modal_js_vars() {
         // Get plugin settings.
-        $settings = get_option( 'simplemodal_settings' );
+        $settings = get_option( 'ultimatemodal_settings' );
 
         if ( $this->is_visible( $settings ) ) {
 
@@ -484,7 +484,7 @@ class Simple_Modal {
 
             $js = '<script type="text/javascript">' . PHP_EOL;
             $js .= '/* <![CDATA[ */' . PHP_EOL;
-            $js .= 'var simplemodal_params = {"time": "' . $time. '"};' . PHP_EOL;
+            $js .= 'var ultimatemodal_params = {"time": "' . $time. '"};' . PHP_EOL;
             $js .= '/* ]]> */' . PHP_EOL;
             $js .= '</script>' . PHP_EOL;
 
@@ -499,7 +499,7 @@ class Simple_Modal {
      */
     public function display_modal() {
         // Get plugin settings.
-        $settings = get_option( 'simplemodal_settings' );
+        $settings = get_option( 'ultimatemodal_settings' );
 
         if ( $this->is_visible( $settings ) ) {
 
@@ -509,10 +509,10 @@ class Simple_Modal {
             $margin = sprintf( '-%spx 0 0 -%spx', ( ( $height + 10 ) / 2 ), ( ( $width + 10 ) / 2 ) );
             $content = isset( $settings['content'] ) ? apply_filters( 'the_content', $settings['content'] ) : '';
 
-            $html = sprintf( '<div id="simplemodal" class="simplemodal" style="background: %s">', $background );
+            $html = sprintf( '<div id="ultimatemodal" class="ultimatemodal" style="background: %s">', $background );
             $html .= '</div>';
-            $html .= sprintf( '<div id="simplemodal-content" class="simplemodal" style="width: %spx; height: %spx; margin: %s;">', $width, $height, $margin );
-            $html .= '<div id="simplemodal-close"></div>';
+            $html .= sprintf( '<div id="ultimatemodal-content" class="ultimatemodal" style="width: %spx; height: %spx; margin: %s;">', $width, $height, $margin );
+            $html .= '<div id="ultimatemodal-close"></div>';
             $html .= $content;
             $html .= '</div>';
 
@@ -522,4 +522,4 @@ class Simple_Modal {
 
 }
 
-$simple_modal = new Simple_Modal;
+$ultimate_modal = new Ultimate_Modal;

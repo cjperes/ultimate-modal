@@ -21,7 +21,7 @@ module.exports = function(grunt) {
                 "config.rb",
                 "assets/js/admin.js",
                 "assets/js/jquery.cookie.js",
-                "assets/js/simplemodal.js"
+                "assets/js/ultimatemodal.js"
             ]
         },
 
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
             all: [
                 "Gruntfile.js",
                 "assets/js/admin.js",
-                "assets/js/simplemodal.js"
+                "assets/js/ultimatemodal.js"
             ]
         },
 
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     "assets/js/admin.min.js": ["assets/js/admin.js"],
-                    "assets/js/simplemodal.min.js": ["assets/js/jquery.cookie.js", "assets/js/simplemodal.js"]
+                    "assets/js/ultimatemodal.min.js": ["assets/js/jquery.cookie.js", "assets/js/ultimatemodal.js"]
                 }
             }
         },
@@ -143,7 +143,7 @@ module.exports = function(grunt) {
         },
 
         zipdir: {
-            "simple-modal": {
+            "ultimate-modal": {
                 src: ["./"],
                 dest: "./<%= pkg.name %>.zip",
                 exclude: "<%= svn_settings.exclude %>"
