@@ -12,13 +12,16 @@ module.exports = function(grunt) {
             exclude: [
                 ".git/",
                 ".gitignore",
-                ".sass_cache/",
+                ".sass-cache/",
                 "node_modules/",
                 "assets/sass/",
                 "Gruntfile.js",
                 "README.md",
                 "package.json",
-                "config.rb"
+                "config.rb",
+                "assets/js/admin.js",
+                "assets/js/jquery.cookie.js",
+                "assets/js/simplemodal.js"
             ]
         },
 
@@ -118,7 +121,7 @@ module.exports = function(grunt) {
 
         shell: {
             svn_add: {
-                command: 'svn add --force * --auto-props --parents --depth infinity -q',
+                command: "svn add --force * --auto-props --parents --depth infinity -q",
                 options: {
                     stdout: true,
                     stderr: true,
@@ -137,6 +140,14 @@ module.exports = function(grunt) {
                     }
                 }
             }
+        },
+
+        zipdir: {
+            "simple-modal": {
+                src: ["./"],
+                dest: "./<%= pkg.name %>.zip",
+                exclude: "<%= svn_settings.exclude %>"
+            }
         }
 
     });
@@ -149,6 +160,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-imagemin");
     grunt.loadNpmTasks("grunt-rsync");
     grunt.loadNpmTasks("grunt-shell");
+    grunt.loadNpmTasks("grunt-wx-zipdir");
 
     // default task
     grunt.registerTask("default", [
