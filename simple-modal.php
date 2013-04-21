@@ -15,6 +15,8 @@ class Simple_Modal {
 
     /**
      * Construct.
+     *
+     * @return void
      */
     public function __construct() {
 
@@ -39,11 +41,13 @@ class Simple_Modal {
         add_action( 'wp_footer', array( &$this, 'display_modal' ), 9999 );
 
         // Modal js vars.
-        add_action( 'wp_head', array( &$this, 'modal_js' ), 9999 );
+        add_action( 'wp_head', array( &$this, 'modal_js_vars' ), 9999 );
     }
 
     /**
      * Load translations.
+     *
+     * @return void
      */
     public function languages() {
         load_plugin_textdomain( 'simplemodal', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
@@ -142,6 +146,8 @@ class Simple_Modal {
 
     /**
      * Built the options page.
+     *
+     * @return string Settings page HTML.
      */
     public function settings_page() {
         ?>
@@ -463,7 +469,12 @@ class Simple_Modal {
         return $output;
     }
 
-    public function modal_js() {
+    /**
+     * Insert the modal js vars.
+     *
+     * @return string HTML and JavaScript.
+     */
+    public function modal_js_vars() {
         // Get plugin settings.
         $settings = get_option( 'simplemodal_settings' );
 
