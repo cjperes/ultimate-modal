@@ -421,7 +421,7 @@ class Simple_Modal {
         $options = $args['options'];
 
         // Sets current option.
-        $current = esc_html( $this->get_option( $tab, $id ) );
+        $current = $this->get_option( $tab, $id );
 
         // Sets input size.
         $size = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : '600px';
