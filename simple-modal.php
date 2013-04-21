@@ -472,7 +472,9 @@ class Simple_Modal {
             $time = isset( $settings['time'] ) ? $settings['time'] : '1';
 
             $js = '<script type="text/javascript">' . PHP_EOL;
-            $js .= '/* <![CDATA[ */ var simplemodal_params = {"time":"' . $time. '"}; /* ]]> */' . PHP_EOL;
+            $js .= '/* <![CDATA[ */' . PHP_EOL;
+            $js .= 'var simplemodal_params = {"time": "' . $time. '"};' . PHP_EOL;
+            $js .= '/* ]]> */' . PHP_EOL;
             $js .= '</script>' . PHP_EOL;
 
             echo $js;
