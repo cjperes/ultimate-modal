@@ -26,7 +26,14 @@
 }
 
 #simplemodal-close {
+    background: url('../images/close.png') no-repeat;
     cursor: pointer;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    z-index: 100;
 }
 
 .simplemodal {
