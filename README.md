@@ -15,7 +15,8 @@ Displays a modal on your WordPress site, configuring the contents with an editor
 
 ### Credits ###
 
-* Icon by => [Victor Erixon](http://www.iconfinder.com/iconsets/eightyshades)
+* jquery.cookie by [Klaus Hartl](https://github.com/carhartl)
+* Icon by [Victor Erixon](http://www.iconfinder.com/iconsets/eightyshades)
 
 ## Installation ##
 
