@@ -5,7 +5,7 @@
  * Description: Displays a modal content in your WordPress
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
- * Version: 1.0.0
+ * Version: 1.1.0
  * License: GPLv2 or later
  * Text Domain: ultimatemodal
  * Domain Path: /languages/
@@ -39,9 +39,6 @@ class Ultimate_Modal {
 
         // Display the modal.
         add_action( 'wp_footer', array( &$this, 'display_modal' ), 9999 );
-
-        // Modal js vars.
-        add_action( 'wp_head', array( &$this, 'modal_js_vars' ), 9999 );
     }
 
     /**
@@ -81,6 +78,14 @@ class Ultimate_Modal {
 
             wp_register_script( 'ultimatemodal', plugins_url( 'assets/js/ultimatemodal.min.js', __FILE__ ), array( 'jquery' ), null, true );
             wp_enqueue_script( 'ultimatemodal' );
+
+            wp_localize_script(
+                'ultimatemodal',
+                'ultimatemodal_params',
+                array(
+                    'time' => isset( $settings['time'] ) ? $settings['time'] : '1'
+                )
+            );
 
             wp_register_style( 'ultimatemodal', plugins_url( 'assets/css/ultimatemodal.css', __FILE__ ), array(), null, 'all' );
             wp_enqueue_style( 'ultimatemodal' );
@@ -467,29 +472,6 @@ class Ultimate_Modal {
         }
 
         return $output;
-    }
-
-    /**
-     * Insert the modal js vars.
-     *
-     * @return string HTML and JavaScript.
-     */
-    public function modal_js_vars() {
-        // Get plugin settings.
-        $settings = get_option( 'ultimatemodal_settings' );
-
-        if ( $this->is_visible( $settings ) ) {
-
-            $time = isset( $settings['time'] ) ? $settings['time'] : '1';
-
-            $js = '<script type="text/javascript">' . PHP_EOL;
-            $js .= '/* <![CDATA[ */' . PHP_EOL;
-            $js .= 'var ultimatemodal_params = {"time": "' . $time. '"};' . PHP_EOL;
-            $js .= '/* ]]> */' . PHP_EOL;
-            $js .= '</script>' . PHP_EOL;
-
-            echo $js;
-        }
     }
 
     /**
