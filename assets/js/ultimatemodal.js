@@ -1,3 +1,4 @@
+/*global ultimatemodal_params: true */
 jQuery(document).ready(function($) {
 
     var modal = $('.ultimatemodal');

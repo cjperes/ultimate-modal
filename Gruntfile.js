@@ -39,7 +39,7 @@ module.exports = function(grunt) {
                 "latedef": true,
                 "noarg": true,
                 "node": true,
-                "undef": false,
+                "undef": true,
                 "browser": true,
                 "trailing": true,
                 "jquery": true,
