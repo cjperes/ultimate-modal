@@ -1,9 +1,9 @@
 # Ultimate Modal #
 **Contributors:** claudiosanches  
 **Tags:** modal, popup  
-**Requires at least:** 3.4  
-**Tested up to:** 3.5.1  
-**Stable tag:** 1.1.0  
+**Requires at least:** 3.5  
+**Tested up to:** 3.6  
+**Stable tag:** 1.1.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -40,6 +40,11 @@ Displays a modal on your WordPress site, configuring the contents with an editor
 
 
 ## Changelog ##
+
+### 1.1.1 - 24/05/2013 ###
+
+* Fixed standards.
+* Removed filter the_action in favor to wpautop() function.
 
 ### 1.1.0 - 24/05/2013 ###
 

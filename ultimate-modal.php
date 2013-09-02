@@ -5,7 +5,7 @@
  * Description: Displays a modal content in your WordPress
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
- * Version: 1.1.0
+ * Version: 1.1.1
  * License: GPLv2 or later
  * Text Domain: ultimatemodal
  * Domain Path: /languages/
@@ -102,14 +102,11 @@ class Ultimate_Modal {
     private function is_visible( $settings ) {
         $show = false;
 
-        if ( isset( $settings['active'] ) && 1 == $settings['active'] ) {
+        if ( isset( $settings['active'] ) && 1 == $settings['active'] )
             $show = true;
-        }
 
-        if ( isset( $settings['only_home'] ) && 1 == $settings['only_home'] && ! is_home() && ! is_front_page() ) {
-
+        if ( isset( $settings['only_home'] ) && 1 == $settings['only_home'] && ! is_home() && ! is_front_page() )
             $show = false;
-        }
 
         return $show;
     }
@@ -186,9 +183,8 @@ class Ultimate_Modal {
         $option = 'ultimatemodal_settings';
 
         // Create option in wp_options.
-        if ( false == get_option( $option ) ) {
+        if ( false == get_option( $option ) )
             add_option( $option );
-        }
 
         // Set settings section.
         add_settings_section(
@@ -329,9 +325,8 @@ class Ultimate_Modal {
     protected function get_option( $tab, $id, $default = '' ) {
         $options = get_option( $tab );
 
-        if ( isset( $options[$id] ) ) {
-            $default = $options[$id];
-        }
+        if ( isset( $options[ $id ] ) )
+            $default = $options[ $id ];
 
         return $default;
 
@@ -361,9 +356,8 @@ class Ultimate_Modal {
         $html = sprintf( '<input type="checkbox" id="%1$s" name="%2$s[%1$s]" value="1"%3$s />', $id, $tab, checked( 1, $current, false ) );
 
         // Displays option description.
-        if ( $args['description'] ) {
+        if ( $args['description'] )
             $html .= sprintf( '<label for="%s"> %s</label>', $id, $args['description'] );
-        }
 
         echo $html;
     }
@@ -386,9 +380,8 @@ class Ultimate_Modal {
         $html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="%4$s-text" />', $id, $tab, $current, $size );
 
         // Displays option description.
-        if ( $args['description'] ) {
+        if ( $args['description'] )
             $html .= sprintf( '<p class="description">%s</p>', $args['description'] );
-        }
 
         echo $html;
     }
@@ -408,9 +401,8 @@ class Ultimate_Modal {
         $html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="ultimatemodal-color-field" />', $id, $tab, $current );
 
         // Displays option description.
-        if ( $args['description'] ) {
+        if ( $args['description'] )
             $html .= sprintf( '<p class="description">%s</p>', $args['description'] );
-        }
 
         echo $html;
     }
@@ -432,20 +424,18 @@ class Ultimate_Modal {
         $size = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : '600px';
 
         // Set default options.
-        if ( empty( $options ) ) {
+        if ( empty( $options ) )
             $options = array( 'textarea_rows' => 10 );
-        }
 
         echo '<div style="width: ' . $size . ';">';
 
-            wp_editor( $current, $tab . '[' . $id . ']', $options );
+            wp_editor( wpautop( $current ), $tab . '[' . $id . ']', $options );
 
         echo '</div>';
 
         // Displays option description.
-        if ( $args['description'] ) {
+        if ( $args['description'] )
             echo sprintf( '<p class="description">%s</p>', $args['description'] );
-        }
     }
 
     /**
@@ -464,10 +454,10 @@ class Ultimate_Modal {
         foreach ( $input as $key => $value ) {
 
             // Check to see if the current option has a value. If so, process it.
-            if ( isset( $input[$key] ) ) {
+            if ( isset( $input[ $key ] ) ) {
 
                 // Filter for validation.
-                $output[$key] = apply_filters( 'ultimatemodal_validate_settings', $value );
+                $output[ $key ] = apply_filters( 'ultimatemodal_validate_settings', $value );
             }
         }
 
@@ -489,7 +479,7 @@ class Ultimate_Modal {
             $width = isset( $settings['width'] ) ? $settings['width'] : '500';
             $height = isset( $settings['height'] ) ? $settings['height'] : '300';
             $margin = sprintf( '-%spx 0 0 -%spx', ( ( $height + 10 ) / 2 ), ( ( $width + 10 ) / 2 ) );
-            $content = isset( $settings['content'] ) ? apply_filters( 'the_content', $settings['content'] ) : '';
+            $content = isset( $settings['content'] ) ? wpautop( $settings['content'] ) : '';
 
             $html = sprintf( '<div id="ultimatemodal" class="ultimatemodal" style="background: %s">', $background );
             $html .= '</div>';
