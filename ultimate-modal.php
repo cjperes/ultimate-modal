@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: Ultimate Modal
- * Plugin URI: http://claudiosmweb.com/
+ * Plugin URI: https://github.com/claudiosmweb/ultimate-modal
  * Description: Displays a modal content in your WordPress
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
- * Version: 1.1.1
+ * Version: 1.2.0
  * License: GPLv2 or later
- * Text Domain: ultimatemodal
+ * Text Domain: ultimate-modal
  * Domain Path: /languages/
  */
 
@@ -47,7 +47,7 @@ class Ultimate_Modal {
      * @return void
      */
     public function languages() {
-        load_plugin_textdomain( 'ultimatemodal', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'ultimate-modal', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     /**
@@ -61,8 +61,7 @@ class Ultimate_Modal {
         wp_enqueue_script( 'wp-color-picker' );
 
         // Theme Options.
-        wp_register_script( 'ultimatemodal-admin', plugins_url( 'assets/js/admin.min.js', __FILE__ ), array( 'jquery' ), null, true );
-        wp_enqueue_script( 'ultimatemodal-admin' );
+        wp_enqueue_script( 'ultimatemodal-admin', plugins_url( 'assets/js/admin.min.js', __FILE__ ), array( 'jquery' ), null, true );
     }
 
     /**
@@ -76,19 +75,18 @@ class Ultimate_Modal {
 
         if ( $this->is_visible( $settings ) ) {
 
-            wp_register_script( 'ultimatemodal', plugins_url( 'assets/js/ultimatemodal.min.js', __FILE__ ), array( 'jquery' ), null, true );
-            wp_enqueue_script( 'ultimatemodal' );
+            wp_enqueue_script( 'ultimate-modal', plugins_url( 'assets/js/ultimatemodal.min.js', __FILE__ ), array( 'jquery' ), null, true );
 
             wp_localize_script(
-                'ultimatemodal',
+                'ultimate-modal',
                 'ultimatemodal_params',
                 array(
                     'time' => isset( $settings['time'] ) ? $settings['time'] : '1'
                 )
             );
 
-            wp_register_style( 'ultimatemodal', plugins_url( 'assets/css/ultimatemodal.css', __FILE__ ), array(), null, 'all' );
-            wp_enqueue_style( 'ultimatemodal' );
+            wp_register_style( 'ultimate-modal', plugins_url( 'assets/css/ultimatemodal.css', __FILE__ ), array(), null, 'all' );
+            wp_enqueue_style( 'ultimate-modal' );
         }
     }
 
@@ -138,10 +136,10 @@ class Ultimate_Modal {
      */
     public function menu() {
         add_options_page(
-            __( 'Ultimate Modal', 'ultimatemodal' ),
-            __( 'Ultimate Modal', 'ultimatemodal' ),
+            __( 'Ultimate Modal', 'ultimate-modal' ),
+            __( 'Ultimate Modal', 'ultimate-modal' ),
             'manage_options',
-            'ultimatemodal',
+            'ultimate-modal',
             array( $this, 'settings_page' )
         );
     }
@@ -156,7 +154,7 @@ class Ultimate_Modal {
 
             <div class="wrap">
                 <div class="icon32" id="icon-options-general"><br /></div>
-                <h2><?php _e( 'Ultimate Modal', 'ultimatemodal' ); ?></h2>
+                <h2><?php _e( 'Ultimate Modal', 'ultimate-modal' ); ?></h2>
 
                 <form method="post" action="options.php">
 
@@ -189,7 +187,7 @@ class Ultimate_Modal {
         // Set settings section.
         add_settings_section(
             'settings_section',
-            __( 'Settings:', 'ultimatemodal' ),
+            __( 'Settings:', 'ultimate-modal' ),
             array( &$this, 'callback_section' ),
             $option
         );
@@ -197,49 +195,49 @@ class Ultimate_Modal {
         // Display the Modal.
         add_settings_field(
             'active',
-            __( 'Display the modal:', 'ultimatemodal' ),
+            __( 'Display the modal:', 'ultimate-modal' ),
             array( &$this, 'callback_checkbox' ),
             $option,
             'settings_section',
             array(
                 'tab' => $option,
                 'id' => 'active',
-                'description' => __( 'Enable to display the modal.', 'ultimatemodal' )
+                'description' => __( 'Enable to display the modal.', 'ultimate-modal' )
             )
         );
 
         // Cookie expiration.
         add_settings_field(
             'time',
-            __( 'Cookie expiration:', 'ultimatemodal' ),
+            __( 'Cookie expiration:', 'ultimate-modal' ),
             array( &$this, 'callback_text' ),
             $option,
             'settings_section',
             array(
                 'tab' => $option,
                 'id' => 'time',
-                'description' => __( 'Days of the cookie will be valid until the modal view again.', 'ultimatemodal' )
+                'description' => __( 'Days of the cookie will be valid until the modal view again.', 'ultimate-modal' )
             )
         );
 
         // Display only in homepage.
         add_settings_field(
             'only_home',
-            __( 'Display only in homepage:', 'ultimatemodal' ),
+            __( 'Display only in homepage:', 'ultimate-modal' ),
             array( &$this, 'callback_checkbox' ),
             $option,
             'settings_section',
             array(
                 'tab' => $option,
                 'id' => 'only_home',
-                'description' => __( 'View the modal only on homepage.', 'ultimatemodal' )
+                'description' => __( 'View the modal only on homepage.', 'ultimate-modal' )
             )
         );
 
         // Set design section.
         add_settings_section(
             'design_section',
-            __( 'Design:', 'ultimatemodal' ),
+            __( 'Design:', 'ultimate-modal' ),
             array( &$this, 'callback_section' ),
             $option
         );
@@ -247,7 +245,7 @@ class Ultimate_Modal {
         // Background.
         add_settings_field(
             'background',
-            __( 'Background:', 'ultimatemodal' ),
+            __( 'Background:', 'ultimate-modal' ),
             array( &$this, 'callback_color' ),
             $option,
             'design_section',
@@ -261,7 +259,7 @@ class Ultimate_Modal {
         // Width
         add_settings_field(
             'width',
-            __( 'Width:', 'ultimatemodal' ),
+            __( 'Width:', 'ultimate-modal' ),
             array( &$this, 'callback_text' ),
             $option,
             'design_section',
@@ -275,7 +273,7 @@ class Ultimate_Modal {
         // Height.
         add_settings_field(
             'height',
-            __( 'Height:', 'ultimatemodal' ),
+            __( 'Height:', 'ultimate-modal' ),
             array( &$this, 'callback_text' ),
             $option,
             'design_section',
@@ -289,7 +287,7 @@ class Ultimate_Modal {
         // Set content section.
         add_settings_section(
             'content_section',
-            __( 'Content:', 'ultimatemodal' ),
+            __( 'Content:', 'ultimate-modal' ),
             array( &$this, 'callback_section' ),
             $option
         );
@@ -297,7 +295,7 @@ class Ultimate_Modal {
         // Address Autocomplete option.
         add_settings_field(
             'content',
-            __( 'Content:', 'ultimatemodal' ),
+            __( 'Content:', 'ultimate-modal' ),
             array( &$this, 'callback_editor' ),
             $option,
             'content_section',

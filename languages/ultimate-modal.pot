@@ -1,0 +1,83 @@
+# Copyright (C) 2013 Ultimate Modal
+# This file is distributed under the same license as the Ultimate Modal package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Ultimate Modal 1.2.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/ultimate-modal\n"
+"POT-Creation-Date: 2013-10-27 01:59:07+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#. #-#-#-#-#  ultimate-modal.pot (Ultimate Modal 1.2.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: ultimate-modal.php:139 ultimate-modal.php:140 ultimate-modal.php:157
+msgid "Ultimate Modal"
+msgstr ""
+
+#: ultimate-modal.php:190
+msgid "Settings:"
+msgstr ""
+
+#: ultimate-modal.php:198
+msgid "Display the modal:"
+msgstr ""
+
+#: ultimate-modal.php:205
+msgid "Enable to display the modal."
+msgstr ""
+
+#: ultimate-modal.php:212
+msgid "Cookie expiration:"
+msgstr ""
+
+#: ultimate-modal.php:219
+msgid "Days of the cookie will be valid until the modal view again."
+msgstr ""
+
+#: ultimate-modal.php:226
+msgid "Display only in homepage:"
+msgstr ""
+
+#: ultimate-modal.php:233
+msgid "View the modal only on homepage."
+msgstr ""
+
+#: ultimate-modal.php:240
+msgid "Design:"
+msgstr ""
+
+#: ultimate-modal.php:248
+msgid "Background:"
+msgstr ""
+
+#: ultimate-modal.php:262
+msgid "Width:"
+msgstr ""
+
+#: ultimate-modal.php:276
+msgid "Height:"
+msgstr ""
+
+#: ultimate-modal.php:290 ultimate-modal.php:298
+msgid "Content:"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/claudiosmweb/ultimate-modal"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Displays a modal content in your WordPress"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "claudiosanches"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://claudiosmweb.com/"
+msgstr ""
