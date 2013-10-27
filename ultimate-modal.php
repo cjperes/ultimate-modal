@@ -62,6 +62,9 @@ class Ultimate_Modal {
 
         // Theme Options.
         wp_enqueue_script( 'ultimatemodal-admin', plugins_url( 'assets/js/admin.min.js', __FILE__ ), array( 'jquery' ), null, true );
+
+        // Modal style.
+        wp_enqueue_style( 'ultimate-modal', plugins_url( 'assets/css/ultimatemodal.css', __FILE__ ), array(), null, 'all' );
     }
 
     /**
@@ -85,8 +88,7 @@ class Ultimate_Modal {
                 )
             );
 
-            wp_register_style( 'ultimate-modal', plugins_url( 'assets/css/ultimatemodal.css', __FILE__ ), array(), null, 'all' );
-            wp_enqueue_style( 'ultimate-modal' );
+            wp_enqueue_style( 'ultimate-modal', plugins_url( 'assets/css/ultimatemodal.css', __FILE__ ), array(), null, 'all' );
         }
     }
 
@@ -161,10 +163,17 @@ class Ultimate_Modal {
                     <?php
                         settings_fields( 'ultimatemodal_settings' );
                         do_settings_sections( 'ultimatemodal_settings' );
-
-                        submit_button();
                     ?>
+                    <table class="form-table">
+                        <tr valign="top">
+                            <th scope="row"><?php _e( 'Demo', 'ultimate-modal' ); ?></th>
+                            <td>
+                                <button id="ultimate-modal-preview" type="button" class="button"><?php _e( 'Preview the modal', 'ultimate-modal' ) ?></button>
+                            </td>
+                        </tr>
+                    </table>
 
+                    <?php submit_button(); ?>
                 </form>
 
             </div>
@@ -396,7 +405,7 @@ class Ultimate_Modal {
         // Sets current option.
         $current = esc_html( $this->get_option( $tab, $id ) );
 
-        $html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="ultimatemodal-color-field" />', $id, $tab, $current );
+        $html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="ultimate-modal-color-field" />', $id, $tab, $current );
 
         // Displays option description.
         if ( $args['description'] )
@@ -479,10 +488,10 @@ class Ultimate_Modal {
             $margin = sprintf( '-%spx 0 0 -%spx', ( ( $height + 10 ) / 2 ), ( ( $width + 10 ) / 2 ) );
             $content = isset( $settings['content'] ) ? wpautop( $settings['content'] ) : '';
 
-            $html = sprintf( '<div id="ultimatemodal" class="ultimatemodal" style="background: %s">', $background );
+            $html = sprintf( '<div id="ultimate-modal" class="ultimate-modal" style="background: %s">', $background );
             $html .= '</div>';
-            $html .= sprintf( '<div id="ultimatemodal-content" class="ultimatemodal" style="width: %spx; height: %spx; margin: %s;">', $width, $height, $margin );
-            $html .= '<div id="ultimatemodal-close"></div>';
+            $html .= sprintf( '<div id="ultimate-modal-content" class="ultimate-modal" style="width: %spx; height: %spx; margin: %s;">', $width, $height, $margin );
+            $html .= '<div id="ultimate-modal-close"></div>';
             $html .= $content;
             $html .= '</div>';
 

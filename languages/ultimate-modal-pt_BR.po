@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Ultimate Modal v1.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-10-27 02:00:40+0000\n"
+"PO-Revision-Date: 2013-10-27 02:50:10+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -38,72 +38,72 @@ msgstr "Exibe uma janela modal em seu WordPress"
 msgid "claudiosanches"
 msgstr "claudiosanches"
 
-#: ultimate-modal.php:190
+#: ultimate-modal.php:199
 #@ ultimate-modal
 msgid "Settings:"
 msgstr "Configurações:"
 
-#: ultimate-modal.php:198
+#: ultimate-modal.php:207
 #@ ultimate-modal
 msgid "Display the modal:"
 msgstr "Exibir o modal:"
 
-#: ultimate-modal.php:205
+#: ultimate-modal.php:214
 #@ ultimate-modal
 msgid "Enable to display the modal."
 msgstr "Ative para exibir o modal."
 
-#: ultimate-modal.php:212
+#: ultimate-modal.php:221
 #@ ultimate-modal
 msgid "Cookie expiration:"
 msgstr "Tempo do cookie:"
 
-#: ultimate-modal.php:219
+#: ultimate-modal.php:228
 #@ ultimate-modal
 msgid "Days of the cookie will be valid until the modal view again."
 msgstr "Dias que o cookie será validado até exibir o modal novamente."
 
-#: ultimate-modal.php:226
+#: ultimate-modal.php:235
 #@ ultimate-modal
 msgid "Display only in homepage:"
 msgstr "Exibir apenas na página inicial:"
 
-#: ultimate-modal.php:233
+#: ultimate-modal.php:242
 #@ ultimate-modal
 msgid "View the modal only on homepage."
 msgstr "Ative para exibir o modal apenas na página inicial."
 
-#: ultimate-modal.php:240
+#: ultimate-modal.php:249
 #@ ultimate-modal
 msgid "Design:"
 msgstr "Design:"
 
-#: ultimate-modal.php:248
+#: ultimate-modal.php:257
 #@ ultimate-modal
 msgid "Background:"
 msgstr "Cor de fundo:"
 
-#: ultimate-modal.php:262
+#: ultimate-modal.php:271
 #@ ultimate-modal
 msgid "Width:"
 msgstr "Largura:"
 
-#: ultimate-modal.php:276
+#: ultimate-modal.php:285
 #@ ultimate-modal
 msgid "Height:"
 msgstr "Altura:"
 
-#: ultimate-modal.php:290
-#: ultimate-modal.php:298
+#: ultimate-modal.php:299
+#: ultimate-modal.php:307
 #@ ultimate-modal
 msgid "Content:"
 msgstr "Conteúdo:"
 
 #. translators: plugin header field 'Name'
 #: ultimate-modal.php:0
-#: ultimate-modal.php:139
-#: ultimate-modal.php:140
-#: ultimate-modal.php:157
+#: ultimate-modal.php:141
+#: ultimate-modal.php:142
+#: ultimate-modal.php:159
 #@ ultimate-modal
 msgid "Ultimate Modal"
 msgstr "Ultimate Modal"
@@ -119,4 +119,14 @@ msgstr "https://github.com/claudiosmweb/ultimate-modal"
 #@ ultimate-modal
 msgid "1.2.0"
 msgstr "1.2.0"
+
+#: ultimate-modal.php:169
+#@ ultimate-modal
+msgid "Demo"
+msgstr "Demonstração"
+
+#: ultimate-modal.php:171
+#@ ultimate-modal
+msgid "Preview the modal"
+msgstr "Pré-visualizar o modal"
 
