@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ultimate Modal 1.2.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/ultimate-modal\n"
-"POT-Creation-Date: 2013-10-27 01:59:07+00:00\n"
+"POT-Creation-Date: 2013-10-27 03:03:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,55 +14,63 @@ msgstr ""
 
 #. #-#-#-#-#  ultimate-modal.pot (Ultimate Modal 1.2.0)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: ultimate-modal.php:139 ultimate-modal.php:140 ultimate-modal.php:157
+#: ultimate-modal.php:142 ultimate-modal.php:143 ultimate-modal.php:160
 msgid "Ultimate Modal"
 msgstr ""
 
-#: ultimate-modal.php:190
+#: ultimate-modal.php:170
+msgid "Demo"
+msgstr ""
+
+#: ultimate-modal.php:172
+msgid "Preview the modal"
+msgstr ""
+
+#: ultimate-modal.php:200
 msgid "Settings:"
 msgstr ""
 
-#: ultimate-modal.php:198
+#: ultimate-modal.php:208
 msgid "Display the modal:"
 msgstr ""
 
-#: ultimate-modal.php:205
+#: ultimate-modal.php:215
 msgid "Enable to display the modal."
 msgstr ""
 
-#: ultimate-modal.php:212
+#: ultimate-modal.php:222
 msgid "Cookie expiration:"
 msgstr ""
 
-#: ultimate-modal.php:219
+#: ultimate-modal.php:229
 msgid "Days of the cookie will be valid until the modal view again."
 msgstr ""
 
-#: ultimate-modal.php:226
+#: ultimate-modal.php:236
 msgid "Display only in homepage:"
 msgstr ""
 
-#: ultimate-modal.php:233
+#: ultimate-modal.php:243
 msgid "View the modal only on homepage."
 msgstr ""
 
-#: ultimate-modal.php:240
+#: ultimate-modal.php:250
 msgid "Design:"
 msgstr ""
 
-#: ultimate-modal.php:248
+#: ultimate-modal.php:258
 msgid "Background:"
 msgstr ""
 
-#: ultimate-modal.php:262
+#: ultimate-modal.php:272
 msgid "Width:"
 msgstr ""
 
-#: ultimate-modal.php:276
+#: ultimate-modal.php:286
 msgid "Height:"
 msgstr ""
 
-#: ultimate-modal.php:290 ultimate-modal.php:298
+#: ultimate-modal.php:300 ultimate-modal.php:308
 msgid "Content:"
 msgstr ""
 
