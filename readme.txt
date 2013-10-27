@@ -1,9 +1,10 @@
 === Ultimate Modal ===
 Contributors: claudiosanches
+Donate link: http://claudiosmweb.com/doacoes/
 Tags: modal, popup
 Requires at least: 3.5
-Tested up to: 3.6
-Stable tag: 1.1.1
+Tested up to: 3.7
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +13,8 @@ Displays a modal content in your WordPress
 == Description ==
 
 Displays a modal on your WordPress site, configuring the contents with an editor.
+
+Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/) for examples.
 
 = Credits =
 
@@ -36,6 +39,12 @@ Displays a modal on your WordPress site, configuring the contents with an editor
 2. Plugin in action.
 
 == Changelog ==
+
+= 1.2.0 - 27/10/2013 =
+
+* Added option to preview the modal in plugin settings page.
+* Added method to reset the cookie when alter the modal content.
+* Fixed the textdomain for new WordPress 3.7 standard.
 
 = 1.1.1 - 24/05/2013 =
 
