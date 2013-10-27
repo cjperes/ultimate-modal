@@ -7,4 +7,4 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) || ! WP_UNINSTALL_PLUGIN || dirname( WP_
     exit;
 }
 
-delete_option( 'simplemodal_settings' );
+delete_option( 'ultimatemodal_settings' );
