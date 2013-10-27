@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
     var modal = $('.ultimate-modal');
 
     // Controls the display of the modal
-    if ($.cookie('ultimatemodal') !== 'active') {
+    if ($.cookie(ultimatemodal_params.cookie_name) !== 'active') {
         modal.delay(300).fadeIn(700);
 
         $('#ultimate-modal, #ultimate-modal-close').click(function() {
@@ -13,9 +13,8 @@ jQuery(document).ready(function($) {
     }
 
     // Set the cookie of the modal.
-    $.cookie('ultimate-modal', 'active', {
+    $.cookie(ultimatemodal_params.cookie_name, 'active', {
         path: '/',
         expires: parseInt(ultimatemodal_params.time, 10)
     });
-
 });

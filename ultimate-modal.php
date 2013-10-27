@@ -64,7 +64,7 @@ class Ultimate_Modal {
         wp_enqueue_script( 'ultimatemodal-admin', plugins_url( 'assets/js/admin.min.js', __FILE__ ), array( 'jquery' ), null, true );
 
         // Modal style.
-        wp_enqueue_style( 'ultimate-modal', plugins_url( 'assets/css/ultimatemodal.css', __FILE__ ), array(), null, 'all' );
+        wp_enqueue_style( 'ultimate-modal', plugins_url( 'assets/css/ultimate-modal.css', __FILE__ ), array(), null, 'all' );
     }
 
     /**
@@ -78,17 +78,18 @@ class Ultimate_Modal {
 
         if ( $this->is_visible( $settings ) ) {
 
-            wp_enqueue_script( 'ultimate-modal', plugins_url( 'assets/js/ultimatemodal.min.js', __FILE__ ), array( 'jquery' ), null, true );
+            wp_enqueue_script( 'ultimate-modal', plugins_url( 'assets/js/ultimate-modal.min.js', __FILE__ ), array( 'jquery' ), null, true );
 
             wp_localize_script(
                 'ultimate-modal',
                 'ultimatemodal_params',
                 array(
+                    'cookie_name' => 'ultimate-modal-' . md5( $settings['content'] ),
                     'time' => isset( $settings['time'] ) ? $settings['time'] : '1'
                 )
             );
 
-            wp_enqueue_style( 'ultimate-modal', plugins_url( 'assets/css/ultimatemodal.css', __FILE__ ), array(), null, 'all' );
+            wp_enqueue_style( 'ultimate-modal', plugins_url( 'assets/css/ultimate-modal.css', __FILE__ ), array(), null, 'all' );
         }
     }
 

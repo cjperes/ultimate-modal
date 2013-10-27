@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                 "*.zip",
                 "assets/js/admin.js",
                 "assets/js/jquery.cookie.js",
-                "assets/js/ultimatemodal.js"
+                "assets/js/ultimate-modal.js"
             ]
         },
 
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
             all: [
                 "Gruntfile.js",
                 "assets/js/admin.js",
-                "assets/js/ultimatemodal.js"
+                "assets/js/ultimate-modal.js"
             ]
         },
 
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     "assets/js/admin.min.js": ["assets/js/admin.js"],
-                    "assets/js/ultimatemodal.min.js": ["assets/js/jquery.cookie.js", "assets/js/ultimatemodal.js"]
+                    "assets/js/ultimate-modal.min.js": ["assets/js/jquery.cookie.js", "assets/js/ultimate-modal.js"]
                 }
             }
         },
