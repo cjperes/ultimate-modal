@@ -5,7 +5,7 @@
  * Description: Displays a modal content in your WordPress
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
- * Version: 1.2.0
+ * Version: 1.2.1
  * License: GPLv2 or later
  * Text Domain: ultimate-modal
  * Domain Path: /languages/
@@ -56,15 +56,19 @@ class Ultimate_Modal {
      * @return void
      */
     function admin_scripts() {
-        // Color Picker.
-        wp_enqueue_style( 'wp-color-picker' );
-        wp_enqueue_script( 'wp-color-picker' );
+        $screen = get_current_screen();
 
-        // Theme Options.
-        wp_enqueue_script( 'ultimatemodal-admin', plugins_url( 'assets/js/admin.min.js', __FILE__ ), array( 'jquery' ), null, true );
+        if ( 'settings_page_ultimate-modal' === $screen->id ) {
+            // Color Picker.
+            wp_enqueue_style( 'wp-color-picker' );
+            wp_enqueue_script( 'wp-color-picker' );
 
-        // Modal style.
-        wp_enqueue_style( 'ultimate-modal', plugins_url( 'assets/css/ultimate-modal.css', __FILE__ ), array(), null, 'all' );
+            // Theme Options.
+            wp_enqueue_script( 'ultimatemodal-admin', plugins_url( 'assets/js/admin.min.js', __FILE__ ), array( 'jquery' ), null, true );
+
+            // Modal style.
+            wp_enqueue_style( 'ultimate-modal', plugins_url( 'assets/css/ultimate-modal.css', __FILE__ ), array(), null, 'all' );
+        }
     }
 
     /**

@@ -4,7 +4,7 @@ Donate link: http://claudiosmweb.com/doacoes/
 Tags: modal, popup
 Requires at least: 3.5
 Tested up to: 3.7
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,11 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 2. Plugin in action.
 
 == Changelog ==
+
+= 1.2.1 - 29/10/2013 =
+
+* Fixed a bug in plugins page.
+* Fixed the scripts load in admin.
 
 = 1.2.0 - 27/10/2013 =
 
