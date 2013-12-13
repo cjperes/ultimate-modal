@@ -2,9 +2,9 @@
 Contributors: claudiosanches
 Donate link: http://claudiosmweb.com/doacoes/
 Tags: modal, popup
-Requires at least: 3.5
-Tested up to: 3.7
-Stable tag: 1.2.1
+Requires at least: 3.8
+Tested up to: 3.8
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,11 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 2. Plugin in action.
 
 == Changelog ==
+
+= 1.2.2 - 13/12/2013 =
+
+* Fixed some code standards.
+* Added support to WordPress 3.8.
 
 = 1.2.1 - 29/10/2013 =
 
