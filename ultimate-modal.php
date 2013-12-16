@@ -108,7 +108,7 @@ class Ultimate_Modal {
 		$active = ( isset( $settings['active'] ) && 1 == $settings['active'] );
 		$only_in_home = ( isset( $settings['only_home'] ) && 1 == $settings['only_home'] && ! is_home() && ! is_front_page() );
 
-		if ( $active && $only_in_home ) {
+		if ( $active && ! $only_in_home ) {
 			$show = true;
 		}
 
