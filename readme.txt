@@ -4,7 +4,7 @@ Donate link: http://claudiosmweb.com/doacoes/
 Tags: modal, popup
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,12 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 
 == Changelog ==
 
+= 1.3.0 - 16/12/2013 =
+
+* Fixed some code standards.
+* Added ability to run the modal shortcodes.
+* Added option to configure delay in the modal.
+
 = 1.2.2 - 13/12/2013 =
 
 * Fixed some code standards.
@@ -72,9 +78,11 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.3.0 =
 
-* Enjoy it.
+* Fixed some code standards.
+* Added ability to run the modal shortcodes.
+* Added option to configure delay in the modal.
 
 == License ==
 
