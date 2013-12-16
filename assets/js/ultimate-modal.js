@@ -16,10 +16,10 @@
 		}
 
 		// Set the cookie of the modal.
-		// $.cookie( ultimatemodal_params.cookie_name, 'active', {
-		//path: '/',
-		//expires: parseInt( ultimatemodal_params.time, 10 )
-		// });
+		$.cookie( ultimatemodal_params.cookie_name, 'active', {
+			path: '/',
+			expires: parseInt( ultimatemodal_params.time, 10 )
+		});
 
 	});
 
