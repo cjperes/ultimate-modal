@@ -1,20 +1,26 @@
 /*global ultimatemodal_params: true */
-jQuery(document).ready(function($) {
+(function ( $ ) {
+	'use strict';
 
-	var modal = $('.ultimate-modal');
+	$(function () {
 
-	// Controls the display of the modal
-	if ($.cookie(ultimatemodal_params.cookie_name) !== 'active') {
-		modal.delay(300).fadeIn(700);
+		var modal = $( '.ultimate-modal' );
 
-		$('#ultimate-modal, #ultimate-modal-close').click(function() {
-			modal.stop().fadeOut(700);
-		});
-	}
+		// Controls the display of the modal
+		if ( 'active' !== $.cookie( ultimatemodal_params.cookie_name ) ) {
+			modal.delay( parseInt( ultimatemodal_params.delay, 10 ) ).fadeIn( 700 );
 
-	// Set the cookie of the modal.
-	$.cookie(ultimatemodal_params.cookie_name, 'active', {
-		path: '/',
-		expires: parseInt(ultimatemodal_params.time, 10)
+			$( '#ultimate-modal, #ultimate-modal-close' ).click( function () {
+				modal.stop().fadeOut( 700 );
+			} );
+		}
+
+		// Set the cookie of the modal.
+		// $.cookie( ultimatemodal_params.cookie_name, 'active', {
+		//path: '/',
+		//expires: parseInt( ultimatemodal_params.time, 10 )
+		// });
+
 	});
-});
+
+}(jQuery));

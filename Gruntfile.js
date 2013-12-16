@@ -13,11 +13,11 @@ module.exports = function( grunt ) {
 
 		// plugin directories
 		dirs: {
-			js: 'admin/assets/js',
-			css: 'admin/assets/css',
-			sass: 'admin/assets/sass',
-			images: 'admin/assets/images',
-			fonts: 'admin/assets/fonts'
+			js: 'assets/js',
+			css: 'assets/css',
+			sass: 'assets/sass',
+			images: 'assets/images',
+			fonts: 'assets/fonts'
 		},
 
 		// svn settings

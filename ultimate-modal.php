@@ -87,7 +87,8 @@ class Ultimate_Modal {
 				'ultimatemodal_params',
 				array(
 					'cookie_name' => 'ultimate-modal-' . md5( $settings['content'] ),
-					'time' => isset( $settings['time'] ) ? $settings['time'] : '1'
+					'time' => ( isset( $settings['time'] ) && ! empty( $settings['time'] ) ) ? intval( $settings['time'] ) : 1,
+					'delay' => ( isset( $settings['delay'] ) && ! empty( $settings['delay'] ) ) ? intval( $settings['delay'] ) : 300
 				)
 			);
 
@@ -129,6 +130,7 @@ class Ultimate_Modal {
 			'background' => '#000000',
 			'width'      => '500',
 			'height'     => '300',
+			'delay'      => '300',
 			'content'    => ''
 		);
 
@@ -294,6 +296,20 @@ class Ultimate_Modal {
 				'tab' => $option,
 				'id' => 'height',
 				'description' => ''
+			)
+		);
+
+		// Height.
+		add_settings_field(
+			'delay',
+			__( 'Delay:', 'ultimate-modal' ),
+			array( $this, 'callback_text' ),
+			$option,
+			'design_section',
+			array(
+				'tab' => $option,
+				'id' => 'delay',
+				'description' => __( 'Delay in seconds.', 'ultimate-modal' )
 			)
 		);
 
