@@ -5,7 +5,7 @@
  * Description: Displays a modal content in your WordPress
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
- * Version: 1.2.2
+ * Version: 1.2.3
  * License: GPLv2 or later
  * Text Domain: ultimate-modal
  * Domain Path: /languages/
@@ -20,25 +20,25 @@ class Ultimate_Modal {
 	 */
 	public function __construct() {
 
-		add_action( 'plugins_loaded', array( &$this, 'languages' ), 0 );
+		add_action( 'plugins_loaded', array( $this, 'languages' ), 0 );
 
 		// Default options.
-		register_activation_hook( __FILE__, array( &$this, 'default_settings' ) );
+		register_activation_hook( __FILE__, array( $this, 'default_settings' ) );
 
 		// Add menu.
-		add_action( 'admin_menu', array( &$this, 'menu' ) );
+		add_action( 'admin_menu', array( $this, 'menu' ) );
 
 		// Init plugin options form.
-		add_action( 'admin_init', array( &$this, 'plugin_settings' ) );
+		add_action( 'admin_init', array( $this, 'plugin_settings' ) );
 
 		// Load scripts in front-end.
-		add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts' ), 999 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 999 );
 
 		// Load admin scripts.
-		add_action( 'admin_enqueue_scripts', array( &$this, 'admin_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 
 		// Display the modal.
-		add_action( 'wp_footer', array( &$this, 'display_modal' ), 9999 );
+		add_action( 'wp_footer', array( $this, 'display_modal' ), 9999 );
 	}
 
 	/**
@@ -56,9 +56,7 @@ class Ultimate_Modal {
 	 * @return void
 	 */
 	function admin_scripts() {
-		$screen = get_current_screen();
-
-		if ( 'settings_page_ultimate-modal' === $screen->id ) {
+		if ( 'settings_page_ultimate-modal' === get_current_screen()->id ) {
 			// Color Picker.
 			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_script( 'wp-color-picker' );
@@ -107,11 +105,12 @@ class Ultimate_Modal {
 	private function is_visible( $settings ) {
 		$show = false;
 
-		if ( isset( $settings['active'] ) && 1 == $settings['active'] )
-			$show = true;
+		$active = ( isset( $settings['active'] ) && 1 == $settings['active'] );
+		$only_in_home = ( isset( $settings['only_home'] ) && 1 == $settings['only_home'] && ! is_home() && ! is_front_page() );
 
-		if ( isset( $settings['only_home'] ) && 1 == $settings['only_home'] && ! is_home() && ! is_front_page() )
-			$show = false;
+		if ( $active && $only_in_home ) {
+			$show = true;
+		}
 
 		return $show;
 	}
@@ -194,14 +193,15 @@ class Ultimate_Modal {
 		$option = 'ultimatemodal_settings';
 
 		// Create option in wp_options.
-		if ( false == get_option( $option ) )
+		if ( false == get_option( $option ) ) {
 			add_option( $option );
+		}
 
 		// Set settings section.
 		add_settings_section(
 			'settings_section',
 			__( 'Settings:', 'ultimate-modal' ),
-			array( &$this, 'callback_section' ),
+			array( $this, 'callback_section' ),
 			$option
 		);
 
@@ -209,7 +209,7 @@ class Ultimate_Modal {
 		add_settings_field(
 			'active',
 			__( 'Display the modal:', 'ultimate-modal' ),
-			array( &$this, 'callback_checkbox' ),
+			array( $this, 'callback_checkbox' ),
 			$option,
 			'settings_section',
 			array(
@@ -223,7 +223,7 @@ class Ultimate_Modal {
 		add_settings_field(
 			'time',
 			__( 'Cookie expiration:', 'ultimate-modal' ),
-			array( &$this, 'callback_text' ),
+			array( $this, 'callback_text' ),
 			$option,
 			'settings_section',
 			array(
@@ -237,7 +237,7 @@ class Ultimate_Modal {
 		add_settings_field(
 			'only_home',
 			__( 'Display only in homepage:', 'ultimate-modal' ),
-			array( &$this, 'callback_checkbox' ),
+			array( $this, 'callback_checkbox' ),
 			$option,
 			'settings_section',
 			array(
@@ -251,7 +251,7 @@ class Ultimate_Modal {
 		add_settings_section(
 			'design_section',
 			__( 'Design:', 'ultimate-modal' ),
-			array( &$this, 'callback_section' ),
+			array( $this, 'callback_section' ),
 			$option
 		);
 
@@ -259,7 +259,7 @@ class Ultimate_Modal {
 		add_settings_field(
 			'background',
 			__( 'Background:', 'ultimate-modal' ),
-			array( &$this, 'callback_color' ),
+			array( $this, 'callback_color' ),
 			$option,
 			'design_section',
 			array(
@@ -273,7 +273,7 @@ class Ultimate_Modal {
 		add_settings_field(
 			'width',
 			__( 'Width:', 'ultimate-modal' ),
-			array( &$this, 'callback_text' ),
+			array( $this, 'callback_text' ),
 			$option,
 			'design_section',
 			array(
@@ -287,7 +287,7 @@ class Ultimate_Modal {
 		add_settings_field(
 			'height',
 			__( 'Height:', 'ultimate-modal' ),
-			array( &$this, 'callback_text' ),
+			array( $this, 'callback_text' ),
 			$option,
 			'design_section',
 			array(
@@ -301,7 +301,7 @@ class Ultimate_Modal {
 		add_settings_section(
 			'content_section',
 			__( 'Content:', 'ultimate-modal' ),
-			array( &$this, 'callback_section' ),
+			array( $this, 'callback_section' ),
 			$option
 		);
 
@@ -309,7 +309,7 @@ class Ultimate_Modal {
 		add_settings_field(
 			'content',
 			__( 'Content:', 'ultimate-modal' ),
-			array( &$this, 'callback_editor' ),
+			array( $this, 'callback_editor' ),
 			$option,
 			'content_section',
 			array(
@@ -336,8 +336,9 @@ class Ultimate_Modal {
 	protected function get_option( $tab, $id, $default = '' ) {
 		$options = get_option( $tab );
 
-		if ( isset( $options[ $id ] ) )
+		if ( isset( $options[ $id ] ) ) {
 			$default = $options[ $id ];
+		}
 
 		return $default;
 
@@ -367,8 +368,9 @@ class Ultimate_Modal {
 		$html = sprintf( '<input type="checkbox" id="%1$s" name="%2$s[%1$s]" value="1"%3$s />', $id, $tab, checked( 1, $current, false ) );
 
 		// Displays option description.
-		if ( $args['description'] )
+		if ( $args['description'] ) {
 			$html .= sprintf( '<label for="%s"> %s</label>', $id, $args['description'] );
+		}
 
 		echo $html;
 	}
@@ -391,8 +393,9 @@ class Ultimate_Modal {
 		$html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="%4$s-text" />', $id, $tab, $current, $size );
 
 		// Displays option description.
-		if ( $args['description'] )
+		if ( $args['description'] ) {
 			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+		}
 
 		echo $html;
 	}
@@ -412,8 +415,9 @@ class Ultimate_Modal {
 		$html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="ultimate-modal-color-field" />', $id, $tab, $current );
 
 		// Displays option description.
-		if ( $args['description'] )
+		if ( $args['description'] ) {
 			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+		}
 
 		echo $html;
 	}
@@ -445,8 +449,9 @@ class Ultimate_Modal {
 		echo '</div>';
 
 		// Displays option description.
-		if ( $args['description'] )
+		if ( $args['description'] ) {
 			echo sprintf( '<p class="description">%s</p>', $args['description'] );
+		}
 	}
 
 	/**
