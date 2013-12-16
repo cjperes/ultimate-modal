@@ -495,7 +495,7 @@ class Ultimate_Modal {
 			$width = isset( $settings['width'] ) ? $settings['width'] : '500';
 			$height = isset( $settings['height'] ) ? $settings['height'] : '300';
 			$margin = sprintf( '-%spx 0 0 -%spx', ( ( $height + 10 ) / 2 ), ( ( $width + 10 ) / 2 ) );
-			$content = isset( $settings['content'] ) ? wpautop( $settings['content'] ) : '';
+			$content = isset( $settings['content'] ) ? wpautop( do_shortcode( $settings['content'] ) ) : '';
 
 			$html = sprintf( '<div id="ultimate-modal" class="ultimate-modal" style="background: %s">', $background );
 			$html .= '</div>';
