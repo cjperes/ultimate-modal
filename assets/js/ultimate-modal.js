@@ -11,7 +11,7 @@
 			modal.delay( parseInt( ultimatemodal_params.delay, 10 ) ).fadeIn( 700 );
 
 			$( '#ultimate-modal, #ultimate-modal-close' ).click( function () {
-				modal.stop().fadeOut( 700 );
+				modal.stop().fadeOut( 700 ).remove();
 			} );
 		}
 
