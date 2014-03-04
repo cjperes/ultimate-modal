@@ -497,11 +497,26 @@ class Ultimate_Modal {
 	}
 
 	/**
+	 * Format the modal content.
+	 *
+	 * @param  string $content
+	 *
+	 * @return string
+	 */
+	protected function format_content( $content ) {
+		global $wp_embed;
+
+		return wpautop( do_shortcode( $wp_embed->autoembed( $wp_embed->run_shortcode( $content ) ) ) );
+	}
+
+	/**
 	 * Display the modal.
 	 *
 	 * @return string HTML of the modal.
 	 */
 	public function display_modal() {
+		global $wp_embed;
+
 		// Get plugin settings.
 		$settings = get_option( 'ultimatemodal_settings' );
 
@@ -511,7 +526,7 @@ class Ultimate_Modal {
 			$width = isset( $settings['width'] ) ? $settings['width'] : '500';
 			$height = isset( $settings['height'] ) ? $settings['height'] : '300';
 			$margin = sprintf( '-%spx 0 0 -%spx', ( ( $height + 10 ) / 2 ), ( ( $width + 10 ) / 2 ) );
-			$content = isset( $settings['content'] ) ? wpautop( do_shortcode( $settings['content'] ) ) : '';
+			$content = isset( $settings['content'] ) ? $this->format_content( $settings['content'] ) : '';
 
 			$html = sprintf( '<div id="ultimate-modal" class="ultimate-modal" style="background: %s">', $background );
 			$html .= '</div>';
