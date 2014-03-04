@@ -86,7 +86,7 @@ class Ultimate_Modal {
 				'ultimate-modal',
 				'ultimatemodal_params',
 				array(
-					'cookie_name' => 'ultimate-modal-' . md5( $settings['content'] ),
+					'cookie_name' => 'ultimate-modal-' . md5( $settings ),
 					'time' => ( isset( $settings['time'] ) && ! empty( $settings['time'] ) ) ? intval( $settings['time'] ) : 1,
 					'delay' => ( isset( $settings['delay'] ) && ! empty( $settings['delay'] ) ) ? intval( $settings['delay'] ) : 300
 				)
