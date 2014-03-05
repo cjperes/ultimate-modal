@@ -4,7 +4,7 @@
 **Tags:** modal, popup  
 **Requires at least:** 3.8  
 **Tested up to:** 3.8.1  
-**Stable tag:** 1.4.0  
+**Stable tag:** 1.4.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -43,6 +43,10 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 
 
 ## Changelog ##
+
+### 1.4.1 - 05/03/2014 ###
+
+* Fixed the modal cookie creation.
 
 ### 1.4.0 - 04/03/2014 ###
 
@@ -88,11 +92,9 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 
 ## Upgrade Notice ##
 
-### 1.3.0 ###
+### 1.4.1 ###
 
-* Fixed some code standards.
-* Added ability to run the modal shortcodes.
-* Added option to configure delay in the modal.
+* Fixed the modal cookie creation.
 
 ## License ##
 

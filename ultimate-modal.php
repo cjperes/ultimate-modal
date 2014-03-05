@@ -5,7 +5,7 @@
  * Description: Displays a modal content in your WordPress
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
- * Version: 1.4.0
+ * Version: 1.4.1
  * License: GPLv2 or later
  * Text Domain: ultimate-modal
  * Domain Path: /languages/
@@ -86,7 +86,7 @@ class Ultimate_Modal {
 				'ultimate-modal',
 				'ultimatemodal_params',
 				array(
-					'cookie_name' => 'ultimate-modal-' . md5( $settings ),
+					'cookie_name' => 'ultimate-modal-' . md5( implode( '', $settings ) ),
 					'time' => ( isset( $settings['time'] ) && ! empty( $settings['time'] ) ) ? intval( $settings['time'] ) : 1,
 					'delay' => ( isset( $settings['delay'] ) && ! empty( $settings['delay'] ) ) ? intval( $settings['delay'] ) : 300
 				)
