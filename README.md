@@ -3,8 +3,8 @@
 **Donate link:** http://claudiosmweb.com/doacoes/  
 **Tags:** modal, popup  
 **Requires at least:** 3.8  
-**Tested up to:** 3.8  
-**Stable tag:** 1.3.0  
+**Tested up to:** 3.8.1  
+**Stable tag:** 1.4.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -43,6 +43,12 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 
 
 ## Changelog ##
+
+### 1.4.0 - 04/03/2014 ###
+
+* Allowed auto embed / oEmbed in the modal content.
+* Improved the cookie renewal when save the plugin settings.
+* Improved the modal close, to prevent errors with videos and audios.
 
 ### 1.3.0 - 16/12/2013 ###
 

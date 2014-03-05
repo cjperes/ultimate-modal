@@ -3,8 +3,8 @@ Contributors: claudiosanches
 Donate link: http://claudiosmweb.com/doacoes/
 Tags: modal, popup
 Requires at least: 3.8
-Tested up to: 3.8
-Stable tag: 1.3.0
+Tested up to: 3.8.1
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,12 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 2. Plugin in action.
 
 == Changelog ==
+
+= 1.4.0 - 04/03/2014 =
+
+* Allowed auto embed / oEmbed in the modal content.
+* Improved the cookie renewal when save the plugin settings.
+* Improved the modal close, to prevent errors with videos and audios.
 
 = 1.3.0 - 16/12/2013 =
 
@@ -78,11 +84,11 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 
 == Upgrade Notice ==
 
-= 1.3.0 =
+= 1.4.0 =
 
-* Fixed some code standards.
-* Added ability to run the modal shortcodes.
-* Added option to configure delay in the modal.
+* Allowed auto embed / oEmbed in the modal content.
+* Improved the cookie renewal when save the plugin settings.
+* Improved the modal close, to prevent errors with videos and audios.
 
 == License ==
 
