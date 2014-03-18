@@ -5,7 +5,7 @@
  * Description: Displays a modal content in your WordPress
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
- * Version: 1.4.1
+ * Version: 1.4.2
  * License: GPLv2 or later
  * Text Domain: ultimate-modal
  * Domain Path: /languages/

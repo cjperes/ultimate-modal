@@ -4,7 +4,7 @@
 **Tags:** modal, popup  
 **Requires at least:** 3.8  
 **Tested up to:** 3.8.1  
-**Stable tag:** 1.4.1  
+**Stable tag:** 1.4.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -33,6 +33,31 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 
 * This plugin is released under a GPL license.
 
+### How to display or hide on some pages? ###
+
+Use the `ultimatemodal_is_visible` filter to control the display.
+
+Example to hide in pages:
+
+
+	/**
+	 * Hide the modal in pages.
+	 *
+	 * @param  bool $display
+	 *
+	 * @return bool
+	 */
+	function ultimatemodal_hide_in_pages( $display ) {
+		if ( is_page() ) {
+			$display = false;
+		}
+
+		return $display;
+	}
+
+	add_filter( 'ultimatemodal_is_visible', 'ultimatemodal_hide_in_pages' );
+
+
 ## Screenshots ##
 
 ### 1. Settings page. ###
@@ -43,6 +68,10 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 
 
 ## Changelog ##
+
+### 1.4.2 - 18/03/2014 ###
+
+* Added the `ultimatemodal_is_visible` filter.
 
 ### 1.4.1 - 05/03/2014 ###
 
@@ -92,9 +121,9 @@ Check the [Screenshots](http://wordpress.org/plugins/ultimate-modal/screenshots/
 
 ## Upgrade Notice ##
 
-### 1.4.1 ###
+### 1.4.2 ###
 
-* Fixed the modal cookie creation.
+* Added the `ultimatemodal_is_visible` filter.
 
 ## License ##
 
