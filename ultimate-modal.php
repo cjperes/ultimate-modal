@@ -113,7 +113,7 @@ class Ultimate_Modal {
 			$show = true;
 		}
 
-		return $show;
+		return apply_filters( 'ultimatemodal_is_visible', $show );
 	}
 
 	/**
